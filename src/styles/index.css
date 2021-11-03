@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", Helvetica, Arial, Sans-Serif;
+  font-size: 16px;
+  line-height: 22px;
+  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.background {
+  background-color: #212644;
+}

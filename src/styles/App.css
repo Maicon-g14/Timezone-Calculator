@@ -1,0 +1,120 @@
+.app {
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.app-content {
+  padding-bottom: 1em;
+  padding-top: 92.84px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.box {
+  background-color: #ffffff;
+  padding-top: 2.3em;
+  padding-bottom: 2.3em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
+  border-radius: 10px;
+  color: #000000;
+  margin-top: 0 !important;
+  position: relative;
+}
+
+.center-screen {
+  float: left;
+  width: 34%;
+  left: 30%;
+}
+
+.logo {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.logo .logo-link > img {
+  max-width: 100%;
+}
+
+label {
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.9em;
+}
+
+input {
+  border: 1px solid #D5D6D6;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #6d6e70;
+  overflow: visible;
+  line-height: 22px;
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.button-container {
+  padding-top: 20px;
+}
+
+.bt {
+  vertical-align: top;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font: normal 1em Open Sans, Helvetica, Arial, Sans-Serif;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  white-space: pre;
+  border: none;
+  border-radius: 5px;
+}
+
+.bt:enabled:active {
+  opacity: 0.8;
+  transform: translateY(2px);
+}
+
+.blue {
+  background-color: #1298D4;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato';
+  color: #1A1D36;
+}
+
+@media only screen and (max-device-width: 1280px), only screen and (max-width: 480px), only screen and (max-device-width: 1280px) and (orientation: portrait) {
+  .app {
+    position: relative;
+    min-height: 100vh;
+  }
+  .app-content {
+    padding-top: 1em;
+    padding-bottom: 3em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-device-width: 1024px), only screen and (max-width: 480px), only screen and (max-device-width: 1280px) and (orientation: portrait) {
+  body {
+    padding-top: 3em;
+  }
+  .center-screen {
+    float: none;
+    width: auto;
+    left: 0;
+  }
+}
