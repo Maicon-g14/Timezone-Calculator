@@ -6,7 +6,7 @@
 
 .app-content {
   padding-bottom: 1em;
-  padding-top: 92.84px;
+  padding-top: 20px;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -30,9 +30,9 @@
 }
 
 .center-screen {
-  float: left;
-  width: 34%;
-  left: 30%;
+  display: inline-block;
+  width: 46%;
+  left: 24%;
 }
 
 .logo {
@@ -44,10 +44,22 @@
   max-width: 100%;
 }
 
+.container-campo {
+  text-align: center;
+}
+
 label {
   font-weight: bold;
   color: #000000;
   font-size: 0.9em;
+  padding-left: 3px;
+}
+
+.input-container {
+  display: inline-block;
+  margin-bottom: 2em;
+  margin-inline: 7px;
+  text-align: left;
 }
 
 input {
@@ -62,7 +74,9 @@ input {
 }
 
 .button-container {
-  padding-top: 20px;
+  display: inline-block;
+  width: 45%;
+  margin-bottom: 3em;
 }
 
 .bt {
@@ -95,6 +109,41 @@ h1, h2, h3, h4, h5, h6 {
   color: #1A1D36;
 }
 
+.date {
+  text-align: center;
+  margin-bottom: 3.5em;
+  color: brown;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.title {
+  text-align: center;
+  line-height: initial;
+}
+
+.input-container.date-container {
+  width: 110px;
+}
+
+.input-container.time-container {
+  width: 96px;
+}
+
+.input-container.timezone-container {
+  width: 133px;
+}
+
+.input-container.timezone-container2 {
+  width: 151px;
+}
+
+.container-result {
+  text-align: center;
+}
+
 @media only screen and (max-device-width: 1280px), only screen and (max-width: 480px), only screen and (max-device-width: 1280px) and (orientation: portrait) {
   .app {
     position: relative;
@@ -113,8 +162,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 3em;
   }
   .center-screen {
-    float: none;
     width: auto;
     left: 0;
+    display: inline-block;
   }
 }

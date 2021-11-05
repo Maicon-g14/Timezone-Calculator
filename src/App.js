@@ -1,7 +1,7 @@
 import './styles/App.css';
-import Logo from './Logo'
-import ContentHeader from './ContentHeader'
-import Content from './Content'
+import Logo from './scripts/Logo'
+import ContentHeader from './scripts/ContentHeader'
+import Content from './scripts/Content'
 
 function App() {
   return (
