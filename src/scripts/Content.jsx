@@ -3,6 +3,7 @@ import '../styles/App.css';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
 import ShowOutput from '../scripts/ShowOutput'
+//import HistoryTable from '../scripts/HistoryTable'
 import InputMask from 'react-input-mask';
 
 class Content extends React.Component {
@@ -10,17 +11,16 @@ class Content extends React.Component {
         super(props)
         moment.locale('pt-br');
         this.state = ({
-            clock: moment()
+            clock: moment(),
+            date: "01/01/2020",
+            time: "00:00",
+            myTimeZone: "-3",
+            timeZone: "0",
+            history: []
         });
 
-        this.calcTimeZone.bind(this)
-        this.checkFields.bind(this)
-        this.search.bind(this)
-    }
-
-    search = () => {
-        console.log("botao clicado " + this.state.date + " " + this.state.time + " " + this.state.timeZone)
-        //a principio aqui converte e salva
+        //this.calcTimeZone.bind(this)
+        //this.checkFields.bind(this)
     }
 
     checkFields = () => {
@@ -28,9 +28,9 @@ class Content extends React.Component {
         let time = this.state.time
         let timeZone = this.state.timeZone
 
-        if (time !== undefined) {
+        if (time) {
             let timeArr = time.split(":")
-            date.setHours(timeArr[0], timeArr[1])
+            date.setHours(...timeArr)
         }
 
         if (!isNaN(date.valueOf())){
@@ -47,7 +47,8 @@ class Content extends React.Component {
 
         date.add(timeZone, 'hours').hours();
         this.setState({
-            clock: date
+            clock: date,
+            history: [...this.state.history, date]
         })
     }
 
@@ -68,27 +69,23 @@ class Content extends React.Component {
                     
                     <div className="input-container timezone-container">
                         <label>Fuso horário local:</label>
-                        <input className="campo" type="number" onChange={(e) => {this.setState({myTimeZone: e.target.value})}} placeholder="GMT-3"/>
+                        <input className="campo" type="number" onChange={(e) => {this.setState({myTimeZone: e.target.value})}} min="-12" max="12" placeholder="GMT-3"/>
                     </div>
 
                     <div className="input-container timezone-container2">
                         <label>Fuso horário destino:</label>
-                        <input className="campo" type="number" onChange={(e) => {this.setState({timeZone: e.target.value})}} placeholder="GMT+0"/>
+                        <input className="campo" type="number" onChange={(e) => {this.setState({timeZone: e.target.value})}} min="-12" max="12" placeholder="GMT+0"/>
                     </div>
                 </div>
 
                 <div className="container-result">
                     <div className="button-container">
-                        <button className="bt blue" type="button" onClick={this.checkFields}>Calcular</button>
+                        <button className="bt blue" type="button" onClick={() => this.checkFields()}>Calcular</button>
                     </div>
 
                     <h2 className="title">Data final:</h2>
                     <ShowOutput clock={this.state.clock} timeZone={this.state.timeZone}/>
 
-                    <h3 className="title">Consultas anteriores:</h3>
-                    <div className="history-table"></div>
-
-                    
                 </div>
             </>
         )
