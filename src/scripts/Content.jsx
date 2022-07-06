@@ -3,7 +3,7 @@ import '../styles/App.css';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
 import ShowOutput from '../scripts/ShowOutput'
-//import HistoryTable from '../scripts/HistoryTable'
+import HistoryTable from '../scripts/HistoryTable'
 import InputMask from 'react-input-mask';
 
 class Content extends React.Component {
@@ -18,9 +18,6 @@ class Content extends React.Component {
             timeZone: "0",
             history: []
         });
-
-        //this.calcTimeZone.bind(this)
-        //this.checkFields.bind(this)
     }
 
     checkFields = () => {
@@ -85,6 +82,11 @@ class Content extends React.Component {
 
                     <h2 className="title">Data final:</h2>
                     <ShowOutput clock={this.state.clock} timeZone={this.state.timeZone}/>
+
+                    <h3 className="title">Consultas anteriores:</h3>
+                    <div className="history-table">
+                        <HistoryTable />
+                    </div>
 
                 </div>
             </>
