@@ -1,35 +1,68 @@
-import * as moment from 'moment';
+import React from 'react';
+import { useState } from 'react';
 
 const HistoryTable = props => {
-    let myDate = props.myDate
-    let myTime = props.myTime
-    let myTimeZone = props.myTimeZone
-    let timeZone = props.timeZone
-    let history = props.history
-    let historyTable = []
+    let [dataArray, addEntry] = useState([]);
 
-    const table = (myDate, myTime, myTimeZone, timeZone, date, time) => {
-        <tr>
-            <td>{myDate}</td>
-            <td>{myTime}</td>
-            <td>{myTimeZone}</td>
-            <td>{timeZone}</td>
-            <td>{date}</td>
-            <td>{time}</td>
-        </tr>
+
+    let data = {
+        myTime: props.myTime,
+        timeZone: props.timeZone,
+        day: props.clock.format('dddd, '),
+        time: props.clock.format('HH:mm')
+    }
+    
+    const retrieveCookie = () => {
+        //logica pegar cookies
+        const cookies = ''
+
+        //parse se precisar
+        addEntry([])
+
+        return cookies;
     }
 
-    if (history !== []) {
-        for (const entry in history) {
+    const storeCookie = newData => {
+        //pega do cookie, add data e exibe 
+        const previousData = retrieveCookie()
+        let data = [newData, ...previousData]
 
-            historyTable.push(table(moment().format('DD MM YYYY'), entry, props.myTimeZone, props.timeZone, props.date, props.time))
+        if(previousData.length >= 5) {
+            data = data.slice(0, -1)
         }
+
+        //logica salvar cookie
     }
-    console.log(history)
-    console.log(myDate, myTime, myTimeZone, timeZone)
+
+    
+
+
+    let historyTable = ''
+
+    const tableRow = (myTime, timeZone, day, time) => {
+        return (
+            <tr>
+                <td>{myTime}</td>
+                <td>{timeZone}</td>
+                <td>{day}</td>
+                <td>{time}</td>
+            </tr>
+        );
+    }
+
+    for (const entry in dataArray) {
+        historyTable += tableRow(entry.myTime, entry.timeZone, entry.day, entry.time)
+    }
+
     return (
         <table>
-            historyTable
+            <tr>
+                <th>Horario Local</th>
+                <th>Fuso Destino</th>
+                <th>Dia</th>
+                <th>Horario Destino</th>
+            </tr>
+            {historyTable}
         </table>
     );
 }

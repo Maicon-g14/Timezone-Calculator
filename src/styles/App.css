@@ -1,20 +1,12 @@
-.app {
-  padding: 20px;
-  position: relative;
-  min-height: 100vh;
+.main-container{
+  margin: 3rem;
 }
 
-.app-content {
-  padding-bottom: 1em;
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.grid-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
+.inner-container{
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin-inline: auto;
 }
 
 .box {
@@ -29,24 +21,14 @@
   position: relative;
 }
 
-.center-screen {
-  display: inline-block;
-  width: 46%;
-  left: 24%;
-}
-
 .logo {
-  margin-bottom: 35px;
+  margin: 3rem;
   text-align: center;
+  font-size: xxx-large;
+  color: #c41515;
 }
 
-.logo .logo-link > img {
-  max-width: 100%;
-}
 
-.container-campo {
-  text-align: center;
-}
 
 label {
   font-weight: bold;
@@ -144,26 +126,4 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-@media only screen and (max-device-width: 1280px), only screen and (max-width: 480px), only screen and (max-device-width: 1280px) and (orientation: portrait) {
-  .app {
-    position: relative;
-    min-height: 100vh;
-  }
-  .app-content {
-    padding-top: 1em;
-    padding-bottom: 3em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
 
-@media only screen and (max-device-width: 1024px), only screen and (max-width: 480px), only screen and (max-device-width: 1280px) and (orientation: portrait) {
-  body {
-    padding-top: 3em;
-  }
-  .center-screen {
-    width: auto;
-    left: 0;
-    display: inline-block;
-  }
-}

@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import 'moment/locale/pt-br';
 import './styles/index.css';
 
+
 class Clock extends React.Component {
     constructor(props) {
         super(props);
@@ -16,15 +17,18 @@ class Clock extends React.Component {
         });
     }
 
+
     componentDidMount() {
         this.timerId = setInterval(
             () => this.refreshClock(), 
-            30000);
+        30000);
     }
+
 
     componentWillUnmount() {
         clearInterval(this.timerId);
     }
+
 
     refreshClock() {
         const momentObj = moment()
@@ -34,6 +38,7 @@ class Clock extends React.Component {
             time: momentObj.format('HH:mm')
         })
     }
+    
 
     render() {
         const day = this.state.day.toString()
